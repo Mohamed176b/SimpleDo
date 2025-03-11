@@ -5,6 +5,7 @@ import LanguageSelector from "./LanguageSelector";
 import { LanguageContext } from "./LanguageContext";
 import { signOut, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import Logo from "../../public/imgs/logo.png";
 import {
   collection,
   addDoc,
@@ -12,8 +13,6 @@ import {
   doc,
   setDoc,
   getDoc,
-  query,
-  where,
 } from "firebase/firestore";
 
 function Home() {
@@ -542,7 +541,7 @@ function Home() {
 
           <Link className="navbar-brand" to="/home">
             <img
-              src="/imgs/logo.png"
+              src={Logo}
               alt="Logo"
               width="30"
               height="24"
