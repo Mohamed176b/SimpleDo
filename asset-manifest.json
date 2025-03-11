@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/SimpleDo/static/css/main.7a8da71c.css",
+    "main.js": "/SimpleDo/static/js/main.ffb0753c.js",
+    "static/js/453.fd7848a8.chunk.js": "/SimpleDo/static/js/453.fd7848a8.chunk.js",
+    "index.html": "/SimpleDo/index.html",
+    "main.7a8da71c.css.map": "/SimpleDo/static/css/main.7a8da71c.css.map",
+    "main.ffb0753c.js.map": "/SimpleDo/static/js/main.ffb0753c.js.map",
+    "453.fd7848a8.chunk.js.map": "/SimpleDo/static/js/453.fd7848a8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7a8da71c.css",
+    "static/js/main.ffb0753c.js"
+  ]
+}
