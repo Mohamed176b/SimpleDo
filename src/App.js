@@ -53,7 +53,7 @@ function App() {
     <Routes>
       {/* Login Page */}
       <Route
-        path="/"
+        path="/SimpleDo"
         element={
           <div className="container-fluid p-0 vh-100 caro-car position-relative">
             {/* Carousel Section */}
