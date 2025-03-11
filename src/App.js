@@ -1,10 +1,9 @@
 import "./App.css";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { GoogleAuthProvider } from "firebase/auth";
 import { useEffect, useContext } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Home from "./components/Home";
 import ProtectedRoute from "./components/ProtectedRoute";
-import { auth } from "./components/firebase";
 import LanguageSelector from "./components/LanguageSelector";
 import { LanguageContext } from "./components/LanguageContext";
 
@@ -17,7 +16,8 @@ function App() {
   // Handle Google Sign-in
   const signIn = async () => {
     try {
-      const result = await signInWithPopup(auth, provider);
+
+      const result = await provider.auth().signInWithRedirect(provider);
       const user = result.user;
 
       console.log("User signed in"); // Logging user details
