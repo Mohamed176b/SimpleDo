@@ -542,7 +542,7 @@ function Home() {
 
           <Link className="navbar-brand" to="/home">
             <img
-              src="imgs/logo.png"
+              src="/imgs/logo.png"
               alt="Logo"
               width="30"
               height="24"
