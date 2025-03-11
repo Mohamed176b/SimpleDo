@@ -70,7 +70,7 @@ function App() {
                     data-bs-interval="10000"
                   >
                     <img
-                      src={`/imgs/caro${num}.jpg`}
+                      src={`imgs/caro${num}.jpg`}
                       className="d-block caro-car-img"
                       alt={`caro ${num}`}
                     />
@@ -116,7 +116,7 @@ function App() {
                   )}
                 </h3>
                 <button className="provider" onClick={signIn}>
-                  <img src="/imgs/google.png" alt="Google" />
+                  <img src="imgs/google.png" alt="Google" />
                 </button>
               </div>
             </div>
