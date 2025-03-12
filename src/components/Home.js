@@ -468,6 +468,7 @@ function Home() {
     setAddPriorityColor(priorityMap[newPriority].color);
     setAddPriorityFireColor(priorityMap[newPriority].fireColor);
     setAddPriorityText(newPriority);
+    document.getElementById("add-dropdown-menu").classList.remove("show");
   };
 
   const handleEditColorChange = (event) => {
@@ -479,6 +480,16 @@ function Home() {
     setEditPriorityColor(priorityMap[newPriority].color);
     setEditPriorityFireColor(priorityMap[newPriority].fireColor);
     setEditPriorityText(newPriority);
+    document.getElementById("edit-dropdown-menu").classList.remove("show");
+  };
+
+  const [expandedTasks, setExpandedTasks] = useState({});
+
+  const toggleExpand = (taskId) => {
+    setExpandedTasks((prev) => ({
+      ...prev,
+      [taskId]: !prev[taskId],
+    }));
   };
 
   return (
@@ -727,7 +738,7 @@ function Home() {
                     >
                       {languageData?.priority}
                     </button>
-                    <ul className="dropdown-menu p-menu">
+                    <ul className="dropdown-menu p-menu" id="add-dropdown-menu">
                       <li
                         className="dropdown-item p-red"
                         data-value="1"
@@ -785,53 +796,7 @@ function Home() {
                           : b.priority - a.priority;
                       })
                       .map((task) => (
-                        <li
-                          key={task.id}
-                          onDoubleClick={() => {
-                            setEditTaskId(task.id);
-                            setEditTaskText(task.text);
-                            setEditPriorityColor(
-                              task.priority === "1"
-                                ? "danger"
-                                : task.priority === "2"
-                                ? "warning"
-                                : "info"
-                            );
-                            setEditPriorityText(task.priority);
-                            setEditPriorityFireColor(task.priorityColor);
-                          }}
-                          onTouchStart={() => {
-                            touchTimerRef.current = setTimeout(() => {
-                              setEditTaskId(task.id);
-                              setEditTaskText(task.text);
-                              setEditPriorityColor(
-                                task.priority === "1"
-                                  ? "danger"
-                                  : task.priority === "2"
-                                  ? "warning"
-                                  : "info"
-                              );
-                              setEditPriorityText(task.priority);
-                              setEditPriorityFireColor(task.priorityColor);
-                            }, 500);
-                          }}
-                          onTouchEnd={() => clearTimeout(touchTimerRef.current)}
-                          onClick={() => {
-                            if (window.innerWidth <= 768) {
-                              setEditTaskId(task.id);
-                              setEditTaskText(task.text);
-                              setEditPriorityColor(
-                                task.priority === "1"
-                                  ? "danger"
-                                  : task.priority === "2"
-                                  ? "warning"
-                                  : "info"
-                              );
-                              setEditPriorityText(task.priority);
-                              setEditPriorityFireColor(task.priorityColor);
-                            }
-                          }}
-                        >
+                        <li key={task.id}>
                           <input
                             className="form-check-input"
                             type="checkbox"
@@ -852,7 +817,10 @@ function Home() {
                               >
                                 {languageData?.priority}
                               </button>
-                              <ul className="dropdown-menu p-menu">
+                              <ul
+                                className="dropdown-menu p-menu"
+                                id="edit-dropdown-menu"
+                              >
                                 <li
                                   className="dropdown-item p-red"
                                   data-value="1"
@@ -902,11 +870,64 @@ function Home() {
                               }}
                             />
                           ) : (
-                            <div className="task">
-                              <span
-                                className={
-                                  task.completed ? "completed-task" : ""
+                            <div
+                              className="task"
+                              onDoubleClick={() => {
+                                setEditTaskId(task.id);
+                                setEditTaskText(task.text);
+                                setEditPriorityColor(
+                                  task.priority === "1"
+                                    ? "danger"
+                                    : task.priority === "2"
+                                    ? "warning"
+                                    : "info"
+                                );
+                                setEditPriorityText(task.priority);
+                                setEditPriorityFireColor(task.priorityColor);
+                              }}
+                              onTouchStart={() => {
+                                touchTimerRef.current = setTimeout(() => {
+                                  setEditTaskId(task.id);
+                                  setEditTaskText(task.text);
+                                  setEditPriorityColor(
+                                    task.priority === "1"
+                                      ? "danger"
+                                      : task.priority === "2"
+                                      ? "warning"
+                                      : "info"
+                                  );
+                                  setEditPriorityText(task.priority);
+                                  setEditPriorityFireColor(task.priorityColor);
+                                }, 500);
+                              }}
+                              onTouchEnd={() =>
+                                clearTimeout(touchTimerRef.current)
+                              }
+                              onClick={() => {
+                                if (window.innerWidth <= 768) {
+                                  setEditTaskId(task.id);
+                                  setEditTaskText(task.text);
+                                  setEditPriorityColor(
+                                    task.priority === "1"
+                                      ? "danger"
+                                      : task.priority === "2"
+                                      ? "warning"
+                                      : "info"
+                                  );
+                                  setEditPriorityText(task.priority);
+                                  setEditPriorityFireColor(task.priorityColor);
                                 }
+                              }}
+                            >
+                              <span
+                                className={`${
+                                  task.completed ? "completed-task" : ""
+                                } ${
+                                  expandedTasks[task.id]
+                                    ? "expanded"
+                                    : "truncate-text"
+                                }`}
+                                onClick={() => toggleExpand(task.id)}
                               >
                                 {task.text}
                               </span>

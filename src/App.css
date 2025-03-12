@@ -278,6 +278,11 @@ body {
   color: var(--dark-color);
   margin: 10px;
 }
+@media (max-width: 576px) {
+  .main-tasks {
+    padding: 10px;
+  }
+}
 .main-tasks .title {
   font-weight: bold;
   font-size: 22px;
@@ -545,7 +550,6 @@ input:focus {
   background-color: rgb(49, 210, 242) !important;
   font-weight: bold;
 }
-
 .p-div {
   width: 10px;
   height: 40px;
@@ -553,4 +557,21 @@ input:focus {
 .task span {
   margin: 0px 5px;
 }
+.truncate-text {
+  direction: rtl; 
+  text-align: right; 
+  display: inline-block;
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.truncate-text.expanded {
+  max-width: none;
+  white-space: normal;
+  overflow: visible;
+}
+
 /* End Home */
