@@ -542,7 +542,7 @@ function Home() {
 
           <Link className="navbar-brand" to="/home">
             <img
-              src="/imgs/logo.png"
+              src={`${process.env.PUBLIC_URL}/imgs/logo.png`}
               alt="Logo"
               width="30"
               height="24"
@@ -718,23 +718,14 @@ function Home() {
                     placeholder={languageData?.writeNewTask}
                   />
 
-                  <div className="btn-group">
+                  <div className="dropdown">
                     <button
                       type="button"
-                      className={`btn btn-${addPriorityColor} p-btn`}
-                    >
-                      {languageData?.priority}
-                    </button>
-                    <button
-                      type="button"
-                      className={`btn btn-${addPriorityColor} p-btn dropdown-toggle dropdown-toggle-split`}
+                      className={`btn btn-${addPriorityColor} pbtn dropdown-toggle`}
                       data-bs-toggle="dropdown"
-                      data-bs-auto-close="true"
                       aria-expanded="false"
                     >
-                      <span className="visually-hidden">
-                        {languageData?.priority}
-                      </span>
+                      {languageData?.priority}
                     </button>
                     <ul className="dropdown-menu p-menu">
                       <li
@@ -850,27 +841,16 @@ function Home() {
                             }
                           />
                           {editTaskId === task.id ? (
-                            <div className="btn-group">
+                            <div className="dropdown">
                               <button
                                 type="button"
                                 className={`btn btn-${
                                   editPriorityColor || "warning"
-                                } p-btn`}
-                              >
-                                {languageData?.priority}
-                              </button>
-                              <button
-                                type="button"
-                                className={`btn btn-${
-                                  editPriorityColor || "warning"
-                                } p-btn dropdown-toggle dropdown-toggle-split`}
+                                } pbtn dropdown-toggle`}
                                 data-bs-toggle="dropdown"
-                                data-bs-auto-close="true"
                                 aria-expanded="false"
                               >
-                                <span className="visually-hidden">
-                                  {languageData?.priority}
-                                </span>
+                                {languageData?.priority}
                               </button>
                               <ul className="dropdown-menu p-menu">
                                 <li

@@ -117,7 +117,7 @@ function App() {
                   )}
                 </h3>
                 <button className="provider" onClick={signIn}>
-                  <img src="imgs/google.png" alt="Google" />
+                  <img src={`${process.env.PUBLIC_URL}/imgs/google.png`} alt="Google" />
                 </button>
               </div>
             </div>
