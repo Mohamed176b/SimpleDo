@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/SimpleDo/static/css/main.f7e9ec37.css",
-    "main.js": "/SimpleDo/static/js/main.8ddeff52.js",
+    "main.css": "/SimpleDo/static/css/main.b583cd29.css",
+    "main.js": "/SimpleDo/static/js/main.c0fde733.js",
     "static/js/453.fd7848a8.chunk.js": "/SimpleDo/static/js/453.fd7848a8.chunk.js",
     "index.html": "/SimpleDo/index.html",
-    "main.f7e9ec37.css.map": "/SimpleDo/static/css/main.f7e9ec37.css.map",
-    "main.8ddeff52.js.map": "/SimpleDo/static/js/main.8ddeff52.js.map",
+    "main.b583cd29.css.map": "/SimpleDo/static/css/main.b583cd29.css.map",
+    "main.c0fde733.js.map": "/SimpleDo/static/js/main.c0fde733.js.map",
     "453.fd7848a8.chunk.js.map": "/SimpleDo/static/js/453.fd7848a8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f7e9ec37.css",
-    "static/js/main.8ddeff52.js"
+    "static/css/main.b583cd29.css",
+    "static/js/main.c0fde733.js"
   ]
 }
