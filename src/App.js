@@ -61,6 +61,7 @@ function App() {
               id="carouselExampleAutoplaying"
               className="carousel slide carousel-fade"
               data-bs-ride="carousel"
+              dir="ltr"
             >
               <div className="carousel-inner position-relative">
                 {[1, 2, 3, 4, 5].map((num) => (
@@ -70,7 +71,7 @@ function App() {
                     data-bs-interval="10000"
                   >
                     <img
-                      src={`imgs/caro${num}.jpg`}
+                      src={`${process.env.PUBLIC_URL}/imgs/caro${num}.jpg`}
                       className="d-block caro-car-img"
                       alt={`caro ${num}`}
                     />
