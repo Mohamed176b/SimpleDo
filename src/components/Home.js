@@ -12,8 +12,6 @@ import {
   doc,
   setDoc,
   getDoc,
-  query,
-  where,
 } from "firebase/firestore";
 
 function Home() {
@@ -39,6 +37,7 @@ function Home() {
   const [editPriorityText, setEditPriorityText] = useState(null);
   const [editPriorityFireColor, setEditPriorityFireColor] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [expandedTasks, setExpandedTasks] = useState({});
   const priorityMap = {
     1: {
       color: "danger",
@@ -261,6 +260,7 @@ function Home() {
   // };
 
   // Add a new task to Firestore
+  
   const addTask = async () => {
     if (!user?.uid || !newTask.trim()) return;
 
@@ -482,8 +482,6 @@ function Home() {
     setEditPriorityText(newPriority);
     document.getElementById("edit-dropdown-menu").classList.remove("show");
   };
-
-  const [expandedTasks, setExpandedTasks] = useState({});
 
   const toggleExpand = (taskId) => {
     setExpandedTasks((prev) => ({
