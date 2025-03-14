@@ -573,5 +573,22 @@ input:focus {
   white-space: normal;
   overflow: visible;
 }
-
+.delete-btn {
+  outline: none;
+  border:  none ;
+  background-color: var(--secondry-color);
+  color: var(--dark-color);
+  margin: 0px 5px;
+  transition: .3s;
+  border-radius: 50%;
+}
+.prev-tasks li:hover .delete-btn {
+  background-color: var(--dark-color);
+  color: var(--for-color);
+}
+.delete-btn:hover {
+  color: var(--dark-color) !important;
+  background-color: var(--for-color) !important;
+  transform: rotate(25deg);
+}
 /* End Home */

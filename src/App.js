@@ -1,42 +1,16 @@
 import "./App.css";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useEffect, useContext } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Home from "./components/Home";
 import ProtectedRoute from "./components/ProtectedRoute";
-import { auth } from "./components/firebase";
 import LanguageSelector from "./components/LanguageSelector";
 import { LanguageContext } from "./components/LanguageContext";
+import { signIn } from "./components/Auth";
 
-const provider = new GoogleAuthProvider();
 
 function App() {
-  const navigate = useNavigate();
   const { language, setLanguage, languageData } = useContext(LanguageContext);
-
-  // Handle Google Sign-in
-  const signIn = async () => {
-    try {
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
-
-      console.log("User signed in"); // Logging user details
-
-      navigate("/home", {
-        state: {
-          user: {
-            uid: user.uid,
-            displayName: user.displayName,
-            email: user.email,
-            photoURL: user.photoURL,
-          },
-        },
-      });
-    } catch (error) {
-      console.error("Error signing in:", error.message); // Improved error handling
-      alert("Failed to sign in. Please try again."); // User-friendly error feedback
-    }
-  };
+  const navigate = useNavigate();
 
   // Update HTML lang attribute and meta description
   useEffect(() => {
@@ -116,7 +90,7 @@ function App() {
                     <span className="placeholder col-4"></span>
                   )}
                 </h3>
-                <button className="provider" onClick={signIn}>
+                <button className="provider" onClick={() => signIn(navigate)}>
                   <img src={`${process.env.PUBLIC_URL}/imgs/google.png`} alt="Google" />
                 </button>
               </div>

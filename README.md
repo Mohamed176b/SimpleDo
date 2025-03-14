@@ -1,35 +1,35 @@
-# SimpleDo - A Simple Task Management App
+# Task Manager - A Simple To-Do List App
 
-**SimpleDo** is a straightforward task management (To-Do List) application that allows users to manage their tasks easily and efficiently. It supports two languages (English and Arabic) with automatic text direction switching and integrates with Firebase for Google Sign-In and task storage in Firestore.
+**Task Manager** is a lightweight task management application designed to help users organize their tasks efficiently. It supports bilingual functionality (English and Arabic) with automatic text direction switching and integrates with Firebase for authentication and task storage.
 
 ## [See Website](https://mohamed176b.github.io/SimpleDo/)
 
 ## Features
 
-- **Google Sign-In**: Secure and quick login using Google accounts.
-- **Task Management**: Easily add, edit, and delete tasks.
-- **Task Filtering**: Filter tasks by status (completed/incomplete) or priority (high/medium/low).
-- **Bilingual Support**: Switch between English and Arabic with automatic text and layout adjustments.
-- **Priority Assignment**: Assign priorities to tasks with visual color indicators.
-- **Loading Effects**: Display placeholders while fetching data to enhance user experience.
-- **Timestamping**: Show creation date and time for each task.
+- **Google Sign-In**: Secure authentication using Google accounts.
+- **Task Management**: Add, edit, and delete tasks easily.
+- **Task Filtering**: Filter tasks based on completion status and priority.
+- **Bilingual Support**: Switch between English and Arabic with automatic text layout adjustments.
+- **Priority Levels**: Assign priority to tasks with color-coded indicators.
+- **Loading Indicators**: Smooth user experience with loading placeholders.
+- **Task Timestamping**: Track creation date and time of tasks.
 
 ## Prerequisites
 
-To run the application locally, you will need:
+To run the application locally, ensure you have:
 
-- [Node.js](https://nodejs.org/) (version v14 or later)
+- [Node.js](https://nodejs.org/) (version 14 or later)
 - [Firebase CLI](https://firebase.google.com/docs/cli) (optional for deployment)
-- An account on [Firebase Console](https://console.firebase.google.com/) to set up the project
+- A Firebase project set up in [Firebase Console](https://console.firebase.google.com/)
 
 ## Installation
 
-Follow these steps to install and run the application locally:
+Follow these steps to set up and run the application locally:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/Mohamed176b/SimpleDo.git
-   cd SimpleDo
+   git clone https://github.com/your-repository/task-manager.git
+   cd task-manager
    ```
 
 2. **Install Dependencies**:
@@ -38,11 +38,11 @@ Follow these steps to install and run the application locally:
    ```
 
 3. **Set Up Firebase**:
-   - Create a new project in [Firebase Console](https://console.firebase.google.com/).
-   - Enable **Authentication** and select Google Sign-In.
+   - Create a Firebase project in [Firebase Console](https://console.firebase.google.com/).
+   - Enable **Authentication** and configure Google Sign-In.
    - Enable **Firestore** as the database.
-   - Add a web app to your Firebase project to obtain the API key.
-   - Create a `.env` file in the project root and add the API key as follows:
+   - Register a web app in Firebase and obtain API credentials.
+   - Create a `.env` file in the project root and add the Firebase API key:
      ```env
      REACT_APP_FIREBASE_API_KEY=your-api-key
      ```
@@ -51,37 +51,42 @@ Follow these steps to install and run the application locally:
    ```bash
    npm start
    ```
-   - The application will run on `http://localhost:3000`.
+   - The app will be available at `http://localhost:3000`.
 
 ## Usage
 
 1. **Sign In**:
-   - Open the application and click the "Sign in with Google" button to log in using your Google account.
+   - Click "Sign in with Google" to authenticate.
 
 2. **Add a Task**:
-   - Click "Add Task," enter the task text, select the priority (high/medium/low), and click "+" to add it.
+   - Enter a task, select priority, and click "Add".
 
 3. **Edit a Task**:
-   - Double-click on a task (or long-press on mobile) to edit the text or priority, then save the changes.
+   - Double-click or long-press a task to edit details.
 
 4. **Complete a Task**:
-   - Mark a task as completed by checking the box next to it.
+   - Mark a task as complete using the checkbox.
 
 5. **Filter Tasks**:
-   - Use the filter menu in the sidebar to view tasks by status or priority.
+   - Use the filter menu to sort by status or priority.
 
 6. **Change Language**:
-   - Click the language button at the bottom of the screen to switch between English and Arabic.
+   - Switch between English and Arabic via the language selector.
 
 ## File Structure
 
-- **`firebase.js`**: Initializes Firebase and exports authentication and database services.
-- **`LanguageContext.js`**: Provides context for managing language and fetching language data from Firestore.
-- **`Home.js`**: The main component for the task page, including task management, filtering, and editing.
-- **`ProtectedRoute.js`**: A component to protect routes that require authentication.
-- **`LanguageSelector.js`**: A component for selecting and displaying language options.
-- **`index.js`**: Initializes the React application and provides context.
-- **`App.js`**: Contains the application routes and integrates with Firebase for sign-in.
+- **`firebase.js`**: Initializes Firebase authentication and Firestore.
+- **`LanguageContext.js`**: Manages language preferences and translations.
+- **`Home.js`**: The main task management interface.
+- **`Auth.js`**: Handles Google authentication.
+- **`CompletedTasks.js`**: Displays completed tasks.
+- **`ProtectedRoute.js`**: Protects authentication-restricted routes.
+- **`LanguageSelector.js`**: Allows users to switch between languages.
+- **`Navbar.js`**: Navigation bar with user authentication options.
+- **`OffcanvasFilters.js`**: Sidebar filters for sorting and prioritizing tasks.
+- **`PriorityUtils.js`**: Utility functions for handling task priorities.
+- **`TaskSection.js`**: Manages task input, display, and actions.
+- **`App.js`**: Configures routes and initializes the application.
 
 ## License
 
@@ -93,7 +98,8 @@ This project is licensed under the [MIT License](LICENSE).
 - [React](https://reactjs.org/): For building the user interface.
 - [Bootstrap](https://getbootstrap.com/): For quick design and layout.
 
-## Additional Notes
+## Notes
 
-- Ensure the API key is set in the `.env` file for the application to function correctly.
-- It is recommended to review the Firebase documentation for setting up Firestore security rules.
+- Ensure `.env` contains the correct Firebase API key.
+- Configure Firestore security rules for data protection.
+
